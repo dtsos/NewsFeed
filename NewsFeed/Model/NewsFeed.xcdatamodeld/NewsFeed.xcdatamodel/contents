@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="NewsFeed" representedClassName="NewsFeed" syncable="YES" codeGenerationType="class">
+        <attribute name="comments" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="likes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsFeedServerID" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="postDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="postedAt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="whichUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserNewsFeed" inverseName="listNews" inverseEntity="UserNewsFeed" syncable="YES"/>
+    </entity>
+    <entity name="UserNewsFeed" representedClassName="UserNewsFeed" syncable="YES" codeGenerationType="class">
+        <attribute name="birthdayDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dob" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobileNo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userIDServer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="listNews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewsFeed" inverseName="whichUser" inverseEntity="NewsFeed" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="NewsFeed" positionX="-360" positionY="-36" width="128" height="165"/>
+        <element name="UserNewsFeed" positionX="-54" positionY="0" width="128" height="150"/>
+    </elements>
+</model>
