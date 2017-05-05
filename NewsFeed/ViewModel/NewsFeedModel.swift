@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 class NewsModel {
     private let fetcher: Fetching
-    
+    //create news model from Server
     init(fetcher: Fetching, dictionary: [String: AnyObject], context:NSManagedObjectContext) {
         self.fetcher = fetcher
         
@@ -61,6 +61,7 @@ class NewsModel {
             self.news?.newsFeedServerID = oldValue!
         }
     }
+    //create news model from coredata
     init(_ newsFeed:NewsFeed, context:NSManagedObjectContext,fetcher:Fetching) {
         self.news = newsFeed
         
@@ -95,6 +96,7 @@ class NewsModel {
             }
         }
     }
+    //get Comment Count
     func getCommentFromServer(){
         if comments == 0 {
             let stringQuery = "\(Constant.RootServer)\(_id!)/commentCount"
@@ -108,6 +110,7 @@ class NewsModel {
         }
         
     }
+    //get LikesCount
     func getLikesFromServer(){
         if likes == 0 {
             let stringQuery = "\(Constant.RootServer)\(_id!)/likeCount"
@@ -173,6 +176,7 @@ protocol NewsFeedProtocol {
     func checkServer(completion: @escaping () -> Void)
 }
 class NewsFeedModel : NewsFeedProtocol {
+    //get newsmodel
     func getNewsModel(index: Int) -> NewsModel {
         return items[index]
     }
@@ -180,6 +184,8 @@ class NewsFeedModel : NewsFeedProtocol {
     var context:NSManagedObjectContext?
     var fetchController:NSFetchedResultsController<NewsFeed>?
     private let fetcher: Fetching
+    
+    //handle for query server , coreData
     init(fetcher: Fetching,fetchController:NSFetchedResultsController<NewsFeed>?){
         self.fetcher = fetcher
         self.fetchController =  fetchController
@@ -191,6 +197,8 @@ class NewsFeedModel : NewsFeedProtocol {
         }
         
     }
+    
+    //check if already create the newsfeed
     func checkArrayHaveID(_ id:Int16) -> (isFound :Bool,newsModel:NewsModel?){
         guard  id >= 0 else{
             return (false,nil)
@@ -206,7 +214,7 @@ class NewsFeedModel : NewsFeedProtocol {
         }
     }
     
-        
+    //Check the server if it's have new news feed. it created new. if not updated it
     func checkServer(completion: @escaping () -> Void){
         fetcher.fetch(withQueryString: Constant.RootServer) { (dictionary) in
             guard let data = dictionary["data"] else {

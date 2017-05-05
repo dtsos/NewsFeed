@@ -111,7 +111,7 @@ class ListNewsFeedController : UIViewController,UICollectionViewDelegate, UIColl
         
        
     }
-   
+   //configure Cell
     func configureCell(_ cell: NewsCell, withEvent newsFeed: NewsFeed?,index:IndexPath) {
         
         cell.labelUsername.text =  newsFeed?.whichUser?.fullName
