@@ -14,6 +14,7 @@ class NewsFeedTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
     
     override func tearDown() {
@@ -33,4 +34,10 @@ class NewsFeedTests: XCTestCase {
         }
     }
     
+//    func testModel(){
+//        let fetch:Fetching =  Fetching()
+//          let newsModel = NewsFeedModel.init(fetcher: fetch, fetchController: nil)
+//        newsModel.checkServer
+//    }
+//    
 }

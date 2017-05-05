@@ -31,6 +31,49 @@ class NewsFeedUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+    }
+    func testBackground(){
+        XCUIDevice.shared().orientation = .portrait
+        
+        let app = XCUIApplication()
+        let collectionViewsQuery = app.collectionViews
+        let element = collectionViewsQuery.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element
+        element.children(matching: .other).element(boundBy: 0).swipeUp()
+        element.swipeUp()
+        XCUIDevice.shared().orientation = .portrait
+       
+        XCUIApplication().collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).swipeUp()
+        
+        
+        collectionViewsQuery.staticTexts["5 comments"].swipeDown()
+        
+        let cell = collectionViewsQuery.children(matching: .cell).element(boundBy: 0)
+        let element2 = cell.children(matching: .other).element.children(matching: .other).element
+        element2.children(matching: .other).element(boundBy: 1).tap()
+        
+        let element3 = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
+        element3.tap()
+        element3.tap()
+        cell.staticTexts["Sat, 09 Jan 2016"].tap()
+        element2.swipeUp()
+        
+    }
+    
+    func testRefreshControl(){
+        
+        let collectionViewsQuery = XCUIApplication().collectionViews
+        let cell = collectionViewsQuery.children(matching: .cell).element(boundBy: 0)
+        let element = cell.children(matching: .other).element.children(matching: .other).element
+        element.children(matching: .other).element(boundBy: 0).swipeDown()
+        element.swipeLeft()
+        collectionViewsQuery.staticTexts["David Mark"].tap()
+        element.swipeLeft()
+        element.swipeDown()
+        element.swipeDown()
+        element.swipeDown()
+        cell.staticTexts["Sat, 09 Jan 2016"].swipeDown()
+        
     }
     
 }

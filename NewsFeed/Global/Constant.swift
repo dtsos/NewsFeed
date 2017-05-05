@@ -24,7 +24,7 @@ extension URLResponse {
 
 extension UIImageView {
     func loadImageURL(_ url: URL?,placeholderImage:String,completionHandler:  @escaping (Bool,Data?,UIImage?) -> Swift.Void) {
-        print(url as Any)
+        
         var imageComplete:UIImage = UIImage(named: placeholderImage)!
         
         guard let url = url else {

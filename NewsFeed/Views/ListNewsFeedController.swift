@@ -30,6 +30,8 @@ class NewsCell : UICollectionViewCell {
 }
 class ListNewsFeedController : UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate{
     
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var fectching :Fetching = Fetching()
     var newsModel : NewsFeedModel?
@@ -111,7 +113,7 @@ class ListNewsFeedController : UIViewController,UICollectionViewDelegate, UIColl
     }
    
     func configureCell(_ cell: NewsCell, withEvent newsFeed: NewsFeed?,index:IndexPath) {
-        print(newsFeed?.whichUser as Any)
+        
         cell.labelUsername.text =  newsFeed?.whichUser?.fullName
         cell.labelTime.text =  newsFeed?.postDate?.dateDiff() ?? newsFeed?.postedAt
         cell.labelLike.text =  "\(newsFeed?.likes.description ?? "0") likes"

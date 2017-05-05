@@ -18,6 +18,9 @@
 		F28B19931EBB1F2D00B3ACCB /* Fetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B19921EBB1F2D00B3ACCB /* Fetching.swift */; };
 		F28B19981EBB306700B3ACCB /* ListNewsFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B19971EBB306700B3ACCB /* ListNewsFeedController.swift */; };
 		F28B199B1EBB30D700B3ACCB /* NewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F28B19991EBB30D700B3ACCB /* NewsFeed.xcdatamodeld */; };
+		F28B199E1EBCCE4400B3ACCB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B19901EBB1EB500B3ACCB /* Constant.swift */; };
+		F28B199F1EBCCE4400B3ACCB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28B19901EBB1EB500B3ACCB /* Constant.swift */; };
+		F28B19A11EBCCE6E00B3ACCB /* NewsFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F28B19991EBB30D700B3ACCB /* NewsFeed.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -319,7 +322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28B19A11EBCCE6E00B3ACCB /* NewsFeed.xcdatamodeld in Sources */,
 				F28B19741EBAFC9D00B3ACCB /* NewsFeedTests.swift in Sources */,
+				F28B199E1EBCCE4400B3ACCB /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28B197F1EBAFC9D00B3ACCB /* NewsFeedUITests.swift in Sources */,
+				F28B199F1EBCCE4400B3ACCB /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +570,7 @@
 				F28B19851EBAFC9D00B3ACCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F28B19861EBAFC9D00B3ACCB /* Build configuration list for PBXNativeTarget "NewsFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +579,7 @@
 				F28B19881EBAFC9D00B3ACCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F28B19891EBAFC9D00B3ACCB /* Build configuration list for PBXNativeTarget "NewsFeedUITests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +588,7 @@
 				F28B198B1EBAFC9D00B3ACCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

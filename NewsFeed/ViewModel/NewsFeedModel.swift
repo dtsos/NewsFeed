@@ -41,7 +41,7 @@ class NewsModel {
             self.news?.whichUser = user
             saveCoreData()
         }
-        print(dictionary)
+        
         
         
         
@@ -98,7 +98,7 @@ class NewsModel {
     func getCommentFromServer(){
         if comments == 0 {
             let stringQuery = "\(Constant.RootServer)\(_id!)/commentCount"
-            print(stringQuery)
+            
             fetcher.fetch(withQueryString: stringQuery, completion: { (dictionary) in
                 self.createNewsFeed()
                 self.comments =  (dictionary["data"] as? Int16) ?? 0
@@ -180,10 +180,10 @@ class NewsFeedModel : NewsFeedProtocol {
     var context:NSManagedObjectContext?
     var fetchController:NSFetchedResultsController<NewsFeed>?
     private let fetcher: Fetching
-    init(fetcher: Fetching,fetchController:NSFetchedResultsController<NewsFeed>){
+    init(fetcher: Fetching,fetchController:NSFetchedResultsController<NewsFeed>?){
         self.fetcher = fetcher
         self.fetchController =  fetchController
-        self.context = fetchController.managedObjectContext
+        self.context = fetchController?.managedObjectContext
         for aNewsFeed in (self.fetchController?.fetchedObjects)! {
             let newsModel:NewsModel = NewsModel.init(aNewsFeed, context:self.context!,fetcher:fetcher)
             
@@ -206,34 +206,7 @@ class NewsFeedModel : NewsFeedProtocol {
         }
     }
     
-    func checkCoreDataHaveID(_ id:Int16) -> (isFound :Bool,newsModel:NewsModel?){
-        guard  id < 0 else{
-            return (false,nil)
-        }
-        var newsModel:NewsModel? = nil
-        let haveElement = items.contains { element in
-            // found
-            if (element._id == id) {
-                
-                newsModel = element
-                return true
-            }
-            else {
-                //  not
-                return false
-            }
-        }
-        if haveElement == true {
-            
-            return (true, newsModel)
-        }
-        else {
-            //  not
-            
-            return (false,nil)
-        }
-    }
-    
+        
     func checkServer(completion: @escaping () -> Void){
         fetcher.fetch(withQueryString: Constant.RootServer) { (dictionary) in
             guard let data = dictionary["data"] else {
